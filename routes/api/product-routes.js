@@ -6,9 +6,15 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // get all products
 router.get('/', (req, res) => {
   Product.findAll({
+    // be sure to include its associated Category and Tag data
     include: [
       {
-         // be sure to include its associated Category and Tag data
+        model: Category,
+        attributes: ['id','category_name']
+      },
+      {
+        model: Tag,
+        attributes: ['id','tag_name']
       }
     ]
   })
@@ -26,16 +32,15 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
+    // be sure to include its associated Category and Tag data
     include: [
       {
         model: Category,
-        attributes: [  // be sure to include its associated Category and Tag data
-        ]
+        attributes: ['id','category_name']
       },
       {
-       model: Tag,
-       attributes: [    // be sure to include its associated Category and Tag data
-      ] 
+        model: Tag,
+        attributes: ['id','tag_name']
       }
     ]
   })
@@ -48,17 +53,15 @@ router.get('/:id', (req, res) => {
 
 // create new product
 router.post('/', (req, res) => {
-  /* req.body should look like this...
-    {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
-    }
-  */
-  Product.create(req.body)
+  Product.create({
+    product_name: req.body.product_name,
+    price: req.body.price,
+    stock: req.body.stock,
+    category_id: req.body.category_id,
+    tagIds: req.body.tagIds,
+    })
     .then((product) => {
-      // if there's product tags, we need to create pairings to bulk create in the ProductTag model
+      console.log(product);
       if (req.body.tagIds.length) {
         const productTagIdArr = req.body.tagIds.map((tag_id) => {
           return {
@@ -132,7 +135,7 @@ router.delete('/:id', (req, res) => {
       res.status(404).json({ message: 'No product found with this ID'});
       return;
     }
-    res.json(dbProductData);
+    res.json({ message: 'Product deleted'});
   })
   .catch(err => {
     console.log(err);
