@@ -56,6 +56,13 @@ GIVEN a functional Express.js API
         DB_NAME=ecommerce_db
         DB_PASSWORD=(yourpassword) 
         DB_USER=(yourusername)
+4. Run the following commands:
+
+        npm init
+        npm install dotenv
+        npm install mysql2
+        npm install express
+        npm install sequelize
 
 ## Usage
 
