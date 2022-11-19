@@ -3,6 +3,7 @@ const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
 
+//Get all categories
 router.get('/', (req, res) => {
   Category.findAll({
     // be sure to include its associated Products
@@ -24,6 +25,7 @@ router.get('/', (req, res) => {
     });
 });
 
+//Get category by ID
 router.get('/:id', (req, res) => {
   Category.findOne({
     where: {
@@ -49,6 +51,7 @@ router.get('/:id', (req, res) => {
   });
 });
 
+//Post a new category
 router.post('/', (req, res) => {
   Category.create({
     category_name: req.body.category_name
@@ -60,6 +63,7 @@ router.post('/', (req, res) => {
   });
 });
 
+//Update an already existing category
 router.put('/:id', (req, res) => {
   Category.update(
     {
@@ -84,6 +88,7 @@ router.put('/:id', (req, res) => {
   });
 });
 
+//delete category
 router.delete('/:id', (req, res) => {
   Category.destroy({
     where: {
@@ -103,4 +108,5 @@ router.delete('/:id', (req, res) => {
   });
 });
 
+//export routes
 module.exports = router;
