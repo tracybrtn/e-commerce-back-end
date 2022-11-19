@@ -2,7 +2,7 @@
 
 ![Badge](https://img.shields.io/badge/License-MIT-lightblue.svg)
 
-[link](link)
+![Screenshot of routes during testing](https://github.com/tracybrtn/e-commerce-back-end/blob/2a361d71b3586e83a17144ba1ddfdcfdf4ef057f/assets/images/insomnia-routes-test.png)
 
 ## Description
 
@@ -53,9 +53,16 @@ GIVEN a functional Express.js API
 2. Clone this repo or download the code. Open it with vscode
 3. Create a .env file in the root directory of the repository to connect to your MySQL database.
 
-`DB_NAME=library_db
-DB_PASSWORD=(yourpassword) 
-DB_USER=(yourusername)`
+        DB_NAME=ecommerce_db
+        DB_PASSWORD=(yourpassword) 
+        DB_USER=(yourusername)
+4. Run the following commands:
+
+        npm init
+        npm install dotenv
+        npm install mysql2
+        npm install express
+        npm install sequelize
 
 ## Usage
 
