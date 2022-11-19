@@ -6,7 +6,7 @@
 
 ## Description
 
-Back end for an e-commerce site that uses Express.js, Sequelize, and MySQL
+Back end for an e-commerce site that uses Express.js, Sequelize, and MySQL2.
 
 ## Table of Contents
 
@@ -47,7 +47,7 @@ GIVEN a functional Express.js API
 
 ## Installation
 
-[This walk-through video will walk the user through all the API routes](https://watch.screencastify.com/v/FXB5YTBBpyngvnWLqVQd). The video also demonstrates how to [install the app.](#installation)
+[This walk-through demonstrates how to install the application.](https://watch.screencastify.com/v/FXB5YTBBpyngvnWLqVQd).
 
 1. Make sure you have `node.js` and `MySQL` installed in your local machine.
 2. Clone this repo or download the code. Open it with vscode
@@ -75,6 +75,8 @@ Step 2: Seed the database with sample data used for testing purposes. In the roo
 Step 3: Start the server by running `npm start`.
 
 Once the server is running you can use Insomnia to test the routes.
+
+[This walk-through video walks the user through all the API routes](https://watch.screencastify.com/v/FXB5YTBBpyngvnWLqVQd).
 
 ## Built with
 
